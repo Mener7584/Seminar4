@@ -1,0 +1,257 @@
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+:root {
+  --surface: #1a1111;
+  --surface-custom: #060404;
+  --on-surface: #f0dedd;
+  --primary: #ffb3b0;
+  --on-primary: #571d1e;
+  --secondary: #e7bdba;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  background-color: var(--surface-custom);
+  color: var(--on-surface);
+  line-height: 1.5;
+  font-size: 19px;
+}
+::selection {
+  background-color: var(--on-surface);
+  color: var(--surface);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+[class*="__container"] {
+  margin: 0 auto;
+  padding-inline: 10px;
+  padding-block: 40px;
+  height: 100dvh;
+  scroll-snap-align: start;
+  overflow: scroll;
+  max-width: 1400px;
+}
+
+.main {
+  flex-grow: 1;
+  height: 100dvh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img,
+svg {
+  height: auto;
+  max-width: 100%;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  object-fit: cover;
+  align-items: center;
+  font-family: monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  background-color: transparent;
+  color: inherit;
+}
+
+button,
+input[type="button"],
+input[type="checkbox"],
+input[type="reset"] {
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled {
+  cursor: default;
+}
+
+.color--primary {
+  color: var(--primary);
+}
+.color--secondary {
+  color: var(--secondary);
+}
+.color--primary::selection {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.text--monospace {
+  font-family: monospace;
+}
+.text--uppercase {
+  text-transform: uppercase;
+}
+
+.title--bigger {
+  font-size: 28px;
+}
+.title--big {
+  font-size: 34px;
+}
+.title--center {
+  text-align: center;
+}
+
+.viewport {
+  opacity: 0;
+  transform: translateY(15px);
+}
+.viewport.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animation-fast {
+  transition: 0.45s ease-out;
+}
+.animation-medium {
+  transition: 0.65s ease-out;
+}
+.animation-long {
+  transition: 0.75s ease-out;
+}
+
+/* HERO SECTION */
+.hero__container,
+.last__container {
+  height: 100svh;
+  display: grid;
+  place-content: center;
+}
+
+/* POLITICS SECTION */
+.politics__container,
+.program__container,
+.compare__container,
+.consulations__container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.politics__wrapper,
+.program__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.politics__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.politics__text,
+.program__text {
+  border-left: 4px solid #ffb3b0;
+  padding-left: 10px;
+}
+.politics__column,
+.program__column {
+  background: #0f0a0a;
+  border: 1px solid #534342;
+  border-radius: 4px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.politics__column-title,
+.program__column-title {
+  font-size: 18px;
+}
+.politics__item {
+  list-style: inside;
+}
+.program__item {
+  list-style: num;
+  margin-left: 22px;
+}
+
+.compare__table {
+  background: #0f0a0a;
+  border: 1px solid #534342;
+  border-radius: 4px;
+  margin-inline: auto;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 6px 8px;
+  border-bottom: 1px solid #534342;
+}
+
+td:nth-child(1),
+td:nth-child(2),
+th:nth-child(1),
+th:nth-child(2) {
+  border-right: 1px solid #534342;
+}
+
+tr:nth-child(5) > td {
+  border-bottom: 0px;
+}
+
+.last__container {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    background: no-repeat url(./CIRCLE.jpeg) center / cover;
+  }
+}
